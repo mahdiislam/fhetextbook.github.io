@@ -189,9 +189,9 @@
 \newcommand\colsplit[2]{\colorlet{tmpcolor}{#2}\edef\tmp{\usecolor{tmpcolor}}%  
   \def\tmpB{}\expandafter\colsplithelp\tmp\relax%
   \ifnum0=#1\relax\edef\fillcol{\tmpB}\else\edef\bordercol{\tmpC}\fi}
-\def\colsplithelp#1#2 #3\relax{%
-  \edef\tmpB{\tmpB#1#2 }%
-  \ifnum `#1>`9\relax\def\tmpC{#3}\else\colsplithelp#3\relax\fi
+\def\colsplithelp{#1}{#2}{#3}\relax{%
+  \edef\tmpB{\tmpB#1#2}%
+  \ifnum`#1>`9\relax\def\tmpC{#3}\else\colsplithelp#3\relax\fi
 }
 \newcommand\outline[1]{\leavevmode%
   \def\maltext{#1}%
@@ -225,7 +225,7 @@
   \let\@ifnextchar\new@ifnextchar
   \array{*\c@MaxMatrixCols #1}}
 
-\newcommand{\hathat}{\tilde} 
+\newcommand{\hathat}[1]{\tilde{#1}}
 
 %\newcommand{\hathat}[1]{% 
 %\begingroup%
